@@ -23,8 +23,8 @@ end
 
 if help
   p "Usage: ignore [--help] [--sync] [--list] [LANGUAGES]"
-  p "\t--sync: Updates list of available .gitignore files"
-  p "\t--list: Lists available"
+  p "    --sync: Updates list of available .gitignore files"
+  p "    --list: Lists available"
 end
 
 if not list and langs.length == 0
