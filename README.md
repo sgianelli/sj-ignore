@@ -2,7 +2,9 @@
 
 This small utility makes generating a .gitignore file for a new project as
 painless as possible when dealing with multiple platforms or languages that you
-require .gitignore info for.
+require .gitignore info for. Currently the program uses
+[Github's gitignore](https://github.com/github/gitignore) repository to provide
+a wide list of established .gitignore files.
 
 ## Installation
 
