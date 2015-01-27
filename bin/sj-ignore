@@ -22,13 +22,16 @@ ARGV.each do |arg|
 end
 
 if help
-  p "Usage: ignore [--help] [--sync] [--list] [LANGUAGES]"
-  p "    --sync: Updates list of available .gitignore files"
-  p "    --list: Lists available"
+  print "Usage: ignore [--help] [--sync] [--list] [LANGUAGES]\n"
+  print "    --sync: Updates list of available .gitignore files\n"
+  print "    --list: Lists available\n"
+
+  exit
 end
 
 if not list and langs.length == 0
   STDERR.puts "No options passed into program"
+
   exit
 end
 
