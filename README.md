@@ -4,10 +4,6 @@ This small utility makes generating a .gitignore file for a new project as
 painless as possible when dealing with multiple platforms or languages that you
 require .gitignore info for.
 
-## Installation
-
-    gem install sj-ignore
-
 ## Example
 
     sj-ignore ruby vim osx > .gitignore
