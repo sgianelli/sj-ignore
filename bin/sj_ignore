@@ -1,0 +1,56 @@
+#!/usr/bin/env ruby
+
+require 'sj_ignore'
+
+# Define basic command line options
+help = false
+list = false
+api = false
+langs = []
+
+# Return a directory with the project libraries.
+def gem_libdir
+  t = ["#{File.dirname(File.expand_path($0))}/../lib/#{Meta::NAME}",
+        "#{Gem.dir}/gems/#{Meta::NAME}-#{Meta::VERSION}/lib/#{Meta::NAME}"]
+  t.each {|i| return i if File.readable?(i) }
+  raise "both paths are invalid: #{t}"
+end
+
+# Sort command line options, this is really stupid logic right now but it does
+# exactly what I need it to
+ARGV.each do |arg|
+  case arg
+  when '-h', '--help'
+    help = true
+  when '-l', '--list'
+    list = true
+  when '-a', '--api'
+    api = true
+  else
+    langs << arg
+  end
+end
+
+if help
+  print "Usage: ignore [--help] [--sync] [--list] [LANGUAGES]\n"
+  print "    --sync: Updates list of available .gitignore files\n"
+  print "    --list: Lists available\n"
+
+  exit
+end
+
+if not list and not api and langs.length == 0
+  STDERR.puts "No options passed into program"
+
+  exit
+end
+
+builder = SjIgnore::Builder.new api
+
+if list
+  builder.list
+end
+
+if langs
+  print builder.download_files langs
+end

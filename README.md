@@ -8,11 +8,18 @@ a wide list of established .gitignore files.
 
 ## Installation
 
-    gem install sj-ignore
+    gem install sj_ignore
 
 ## Example
 
-    sj-ignore ruby vim osx > .gitignore
+To use this by pulling down a local copy of the github/gitignore repository
+into the gem's installed lib/ directory:
+
+    sj_ignore ruby vim osx > .gitignore
+
+To use GitHub's API to fetch files remotely:
+
+    sj_ignore -a ruby vim osx > .gitignore
 
 ## TODO
 
