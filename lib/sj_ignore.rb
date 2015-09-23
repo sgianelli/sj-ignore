@@ -45,8 +45,8 @@ module SjIgnore
 
     def list
       # Print out a list of all available .gitignore files
-      @contents.each do |path, ref|
-        p path
+      @contents.keys.sort.each do |path, ref|
+        print path + "\n"
       end
     end
 
